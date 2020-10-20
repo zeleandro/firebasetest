@@ -1,6 +1,5 @@
 const { admin, db } = require('../util/admin');
 const config = require('../util/config');
-// const { uuid } = require("uuidv4");
 
 exports.getAllProducts = (req, res) => {
     db
@@ -73,8 +72,7 @@ exports.getProduct = (req, res) => {
 
     let imageToBeUploaded = {};
     let imageFileName;
-    // String for image token
-    // let generatedToken = uuid();
+
 
     busboy.on("file", (fieldname, file, filename, encoding, mimetype) => {
       console.log(fieldname, file, filename, encoding, mimetype);
@@ -100,8 +98,6 @@ exports.getProduct = (req, res) => {
           metadata: {
             metadata: {
               contentType: imageToBeUploaded.mimetype,
-              //Generate token to be appended to imageUrl
-            //   firebaseStorageDownloadTokens: generatedToken,
             },
           },
         })
